@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/card.css">
+<link rel="stylesheet" type="text/css" href="css/com.css">
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="com.html">Các món cơm</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
+
+<div style="padding-left:16px">
+  <h2>Các món cơm ngon nhất Việt Nam</h2>
+  <p>Giá bình dân..</p>
+</div>
+<div class="card">
+  <img id="h" src="hinh/h0.jpg" alt="Denim Jeans" style="width:100%">
+  <h1 id="ten"></h1>
+  <p id="gia" class="price"></p>
+  <p><button onclick="chon()">Bỏ vào giỏ hàng</button></p>
+   <p><button onclick="next()">Next</button></p>
+   <select id="select">
+  <option value="0">Giỏ hàng:</option>
+   </select>
+    <p id="tong" class="price"></p>  
+</div>
+<script type="text/javascript">
+  var i=-1,ten=["tấm","gà","sườn","chiên","cá","cari"],gia=[25,30,35,32,34,40,42];
+  var tong=0;
+  
+  function next() {
+    i=(i+1) % 5;document.getElementById("ten").innerHTML = "cơm "+ten[i];
+    document.getElementById("gia").innerHTML = gia[i] + " ngàn đồng";
+    document.getElementById("h").src = "hinh/h" + i + ".jpg";
+  }
+  next();
+  function chon() {
+    var x = document.getElementById("select");
+  var option = document.createElement("option");
+    option.text ="Cơm " + ten[i] + " , "+ gia[i] +" ngàn đồng";
+    x.add(option);
+    tong=tong +gia[i];
+    document.getElementById("tong").innerHTML ="tổng="+ tong + " ngàn đồng";
+  }
+</script>
+</body>
+</html>
